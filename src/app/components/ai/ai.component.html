@@ -1,0 +1,30 @@
+<mat-card>
+  <h1 (click)="navigate()"
+     class="mat-display-1 title">
+     Made with Love and Passion in Berlin
+     <i class="material-icons" matTooltip="Talk To Me">favorite</i>
+</h1>
+  <mat-card-content *ngFor="let message of allMessages | async">
+    <div class="message"
+         [ngClass]="{'from': message.sentBy === 'bot', 'to': message.sentBy === 'user'}">
+        {{ message.content }}
+    </div>
+  </mat-card-content>
+
+  <div class="message-container">
+      <mat-card-actions class="voice-button">
+          <button mat-icon-button (click)="startTalkingToBot()">
+              <mat-icon>keyboard_voice</mat-icon>
+          </button>
+      </mat-card-actions>
+      <mat-input-container>
+        <input matInput [(ngModel)]="formInput" min="2" placeholder="Your Message ..."
+        (keyup.enter)="sendMessageToBot()" type="text">
+      </mat-input-container>
+  </div>
+
+  <mat-card-actions class="button-center">
+    <button mat-raised-button (click)="sendMessageToBot()">Send</button>
+  </mat-card-actions>
+
+</mat-card>
