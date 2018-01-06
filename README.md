@@ -29,4 +29,4 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## Honor
 
-Made with Love and Passion in Berlin
+Made with Love and Passion in Berlin.
